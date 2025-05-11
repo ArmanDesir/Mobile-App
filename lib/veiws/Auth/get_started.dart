@@ -23,14 +23,14 @@ class GetStartedPage extends StatelessWidget {
             actions: [
               TextButton(
                 onPressed: () {
-                  Navigator.pop(context); // Close dialog
+                  Navigator.pop(context);
                 },
                 child: Text('Cancel'),
               ),
               ElevatedButton(
                 onPressed: () {
                   if (passkeyController.text == teacherPasskey) {
-                    Navigator.pop(context); // Close dialog
+                    Navigator.pop(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (_) => TeacherRegisterPage()),
@@ -51,30 +51,73 @@ class GetStartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Get Started', style: TextStyle(fontSize: 32)),
-              SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => StudentRegisterPage()),
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Top image with fallback
+            SizedBox(
+              height: 350,
+              width: double.infinity,
+              child: Image.asset(
+                'assets/images/school_seal.png',
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  return Center(
+                    child: Text(
+                      'Image failed to load',
+                      style: TextStyle(color: Colors.red),
+                    ),
                   );
                 },
-                child: Text('I am a Student'),
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () => _showPasskeyDialog(context),
-                child: Text('I am a Teacher'),
+            ),
+            // Main content scrollable and centered
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Welcome to PracPro Math',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      'Choose your role to get started',
+                      style: TextStyle(fontSize: 18, color: Colors.black87),
+                    ),
+                    SizedBox(height: 40),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => StudentRegisterPage(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'I am a Student',
+                        style: TextStyle(color: Colors.black87, fontSize: 24),
+                      ),
+                    ),
+                    SizedBox(height: 30),
+                    ElevatedButton(
+                      onPressed: () => _showPasskeyDialog(context),
+                      child: Text(
+                        'I am a Teacher',
+                        style: TextStyle(color: Colors.black87, fontSize: 24),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

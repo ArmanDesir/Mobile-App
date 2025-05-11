@@ -6,12 +6,9 @@ class TeacherRegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Teacher Registration')),
+      appBar: AppBar(title: Text('Sign up as a Teacher')),
       body: Center(
-        child: Text(
-          'Teacher Registration Form Goes Here',
-          style: TextStyle(fontSize: 18),
-        ),
+        child: Text('Teacher RegistratHere', style: TextStyle(fontSize: 18)),
       ),
     );
   }
