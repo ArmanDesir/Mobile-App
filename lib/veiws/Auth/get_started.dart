@@ -56,7 +56,7 @@ class GetStartedPage extends StatelessWidget {
           children: [
             // Top image with fallback
             SizedBox(
-              height: 350,
+              height: 325,
               width: double.infinity,
               child: Image.asset(
                 'assets/images/school_seal.png',
@@ -90,7 +90,7 @@ class GetStartedPage extends StatelessWidget {
                       'Choose your role to get started',
                       style: TextStyle(fontSize: 18, color: Colors.black87),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 70),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -102,7 +102,7 @@ class GetStartedPage extends StatelessWidget {
                       },
                       child: Text(
                         'I am a Student',
-                        style: TextStyle(color: Colors.black87, fontSize: 24),
+                        style: TextStyle(color: Colors.black87, fontSize: 22),
                       ),
                     ),
                     SizedBox(height: 30),
@@ -110,7 +110,7 @@ class GetStartedPage extends StatelessWidget {
                       onPressed: () => _showPasskeyDialog(context),
                       child: Text(
                         'I am a Teacher',
-                        style: TextStyle(color: Colors.black87, fontSize: 24),
+                        style: TextStyle(color: Colors.black87, fontSize: 22),
                       ),
                     ),
                   ],
